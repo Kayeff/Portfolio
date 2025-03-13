@@ -31,8 +31,4 @@
   .link {
     @apply after:content-[''] after:h-[1px] after:w-full after:bg-rich-grey after:absolute after:-bottom-1 after:scale-x-0 after:origin-right after:transition-transform after:ease-in-out hover:after:scale-100 hover:after:origin-left after:duration-700 after:overflow-hidden text-rich-grey;
   }
-
-  .overlay {
-    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-0;
-  }
 }
