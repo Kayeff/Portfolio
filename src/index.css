@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "General Sans";
+  src: url("./fonts/GeneralSans-Variable.woff2");
+}
+
+@theme {
+  --color-night: #1a1c23;
+  --color-rich-grey: #a7a7a7;
+  --color-light-gray: #cacaca;
+
+  --font-general-sans: "General Sans";
+
+  --breakpoint-*: initial;
+  --breakpoint-mobile-s: 320px;
+  --breakpoint-mobile-m: 325px;
+  --breakpoint-mobile-l: 425px;
+  --breakpoint-sm: 500px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-laptop-l: 1440px;
+  --breakpoint-4k: 2560px;
+}
+
+.me {
+  background: url("./assets/kaif-2.webp") no-repeat center center/cover;
+}
+
+@layer base {
+  .link {
+    @apply after:content-[''] after:h-[1px] after:w-full after:bg-rich-grey after:absolute after:-bottom-1 after:scale-x-0 after:origin-right after:transition-transform after:ease-in-out hover:after:scale-100 hover:after:origin-left after:duration-700 after:overflow-hidden text-rich-grey;
+  }
+
+  .overlay {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-0;
+  }
+}
