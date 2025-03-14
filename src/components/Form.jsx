@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
-import React from "react";
+import { useState } from "react";
 
 export default function Form() {
+  const [form, setForm] = useState({
+    userName: "",
+    userCause: "",
+  });
+
   return (
     <motion.form
       whileInView={{ opacity: 1 }}
@@ -12,22 +17,38 @@ export default function Form() {
       className="flex flex-col gap-6"
     >
       <div>
-        <p>Hi, Kaif</p>
-        <p>
-          My name is{" "}
-          <input type="text" placeholder="your name" className="outline-none" />
-        </p>
-        <p className="flex items-start gap-2">
-          I'm reaching out because{" "}
-          <textarea
-            placeholder="I'm.."
-            className="outline-none resize-x h-16"
+        <span>
+          Hi, Kaif. My name is{" "}
+          <input
+            type="text"
+            placeholder="your name."
+            className="outline-none"
           />
-        </p>
-        <p className="flex items-start gap-2">
-          Cheers,{" "}
-          <input type="text" placeholder="your name" className="outline-none" />
-        </p>
+          <p>
+            My mail is{" "}
+            <input
+              type="email"
+              placeholder="your email."
+              className="outline-none"
+            />
+          </p>
+          <p className="flex items-start gap-2">
+            I have to say{" "}
+            <textarea
+              type="text"
+              placeholder="your message."
+              className="outline-none w-[70%] resize-none"
+            />
+          </p>
+          <p>
+            Cheers,{" "}
+            <input
+              type="text"
+              placeholder="your name."
+              className="outline-none"
+            />
+          </p>
+        </span>
       </div>
       <div className="w-full">
         <button className="w-full bg-rich-grey py-3 px-4 rounded-full text-night tracking-tighter flex items-center justify-between hover:bg-transparent hover:border-rich-grey border border-transparent hover:text-rich-grey cursor-pointer duration-300">

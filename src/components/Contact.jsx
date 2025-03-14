@@ -5,7 +5,7 @@ import Form from "./Form";
 export default function Contact() {
   return (
     <section className="w-full bg-night text-rich-grey grid grid-cols-3 gap-2 border-t border-rich-grey">
-      <div className="w-full p-4 flex items-center justify-start flex-col gap-20 border-r border-rich-grey">
+      <div className="w-full p-4 flex items-center justify-between flex-col border-r border-rich-grey">
         <div className="w-full flex flex-col">
           <motion.h1
             whileInView={{ opacity: 1 }}
