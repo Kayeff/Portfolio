@@ -3,6 +3,8 @@ import framerMotion from "../assets/framer-motion.svg";
 import js from "../assets/javascript.svg";
 import tailwind from "../assets/tailwind-css.svg";
 import SmallHeading from "./SmallHeading";
+import { motion } from "framer-motion";
+import resume from "../assets/resume.pdf";
 
 const stack = [
   { stackName: "Javascript", stackIcon: js },
@@ -11,13 +13,14 @@ const stack = [
   { stackName: "Framer Motion", stackIcon: framerMotion },
 ];
 
-import { motion } from "framer-motion";
-
-export default function About() {
+export default function About({ ref }) {
   return (
-    <section className="w-full min-h-screen grid grid-cols-2 bg-night text-rich-grey">
-      <div></div>
-      <div className="w-full flex items-center justify-center p-8">
+    <section
+      id="about"
+      ref={ref}
+      className="w-full min-h-screen bg-night text-rich-grey flex items-center justify-center"
+    >
+      <div className="w-[50%] flex items-center justify-center p-8">
         <div className="grid grid-cols-2 gap-10 ">
           <motion.div
             initial={{ opacity: 0 }}
@@ -44,7 +47,10 @@ export default function About() {
                 writing clean code, I'm driven by the pursuit of impactful
                 design that speaks volumes through subtlety .When I'm not coding
                 or learning, you'll find me working out in the gym, pushing
-                myself to new limits both physically and mentally.
+                myself to new limits both physically and mentally. Here is my{" "}
+                <a href={resume} target="_blank" className="underline text-lg ">
+                  Resume
+                </a>
               </motion.p>
             </div>
             <div className="flex items-center justify-start gap-4">

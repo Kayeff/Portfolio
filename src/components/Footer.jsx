@@ -1,5 +1,6 @@
-export default function Footer() {
-  const today = new Date();
+import { memo } from "react";
+
+const Footer = memo(function Footer({ today }) {
   return (
     <footer className="w-full bg-rich-grey text-night flex items-center justify-between p-2">
       <div>
@@ -12,4 +13,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+});
+
+export default Footer;

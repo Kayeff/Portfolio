@@ -1,10 +1,9 @@
+import { memo } from "react";
 import { formatDate, getDay, getMonthName } from "../date";
 import Heading from "./Heading";
 import SmallHeading from "./SmallHeading";
 
-export default function Hero() {
-  const today = new Date();
-
+const Hero = memo(function Hero({ today }) {
   return (
     <section className="w-full h-[calc(100vh-70px)] relative space-y-2 bg-night text-rich-grey">
       <div className="w-full px-4 py-20">
@@ -24,4 +23,6 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+});
+
+export default Hero;

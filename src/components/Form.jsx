@@ -1,21 +1,8 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 export default function Form() {
-  const [form, setForm] = useState({
-    userName: "",
-    userCause: "",
-  });
-
   return (
-    <motion.form
-      whileInView={{ opacity: 1 }}
-      initial={{ opacity: 0 }}
-      transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
-      viewport={{ once: true }}
-      action=""
-      className="flex flex-col gap-6"
-    >
+    <form action="" className="flex flex-col gap-6">
       <div>
         <span>
           Hi, Kaif. My name is{" "}
@@ -61,14 +48,12 @@ export default function Form() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
               d="M25 0.726562L35 6.50007L25 12.2736V7.50007H0V5.50007H25V0.726562Z"
               fill="CurrentColor"
             ></path>
           </svg>
         </button>
       </div>
-    </motion.form>
+    </form>
   );
 }
