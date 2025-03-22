@@ -21,7 +21,7 @@ export default function ProjectBar({ project }) {
           delay: project.id * 0.05,
         }}
         viewport={{ once: true }}
-        className="p-2 w-full relative text-[5vw] leading-[5vw] font-medium uppercase text-[var(--text)] tracking-tighter"
+        className="p-2 w-full relative text-[5vw] leading-[5vw] uppercase text-[var(--text)] tracking-tighter"
       >
         Project {project.id}
       </motion.span>
@@ -31,7 +31,7 @@ export default function ProjectBar({ project }) {
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="w-full absolute left-1/2 -translate-x-1/2 bg-[var(--text)] overflow-hidden px-2"
       >
-        <span className="text-[5vw] leading-[5vw] font-medium uppercase text-[var(--background)] tracking-tighter fixed top-1/2 -translate-y-1/2">
+        <span className="text-[5vw] leading-[5vw] uppercase text-[var(--background)] tracking-tighter fixed top-1/2 -translate-y-1/2">
           {project.title}{" "}
         </span>
       </motion.div>

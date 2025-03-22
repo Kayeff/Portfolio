@@ -17,9 +17,7 @@ export default function Contact({ ref }) {
         className="w-full p-4 flex items-center justify-between flex-col border-r border-[var(--text)]"
       >
         <div className="w-full flex flex-col">
-          <h1 className="uppercase tracking-tight font-medium text-4xl">
-            Contact
-          </h1>
+          <h1 className="uppercase tracking-tight text-4xl">Contact</h1>
           <p className="laptop:text-base font-normal text-sm">
             Say <span className="text-[var(--span-text)]">"Hello."</span> or
             drop me suggestions.
