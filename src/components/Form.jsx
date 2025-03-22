@@ -38,7 +38,7 @@ export default function Form() {
         </span>
       </div>
       <div className="w-full">
-        <button className="w-full bg-rich-grey py-3 px-4 rounded-full text-night tracking-tighter flex items-center justify-between hover:bg-transparent hover:border-rich-grey border border-transparent hover:text-rich-grey cursor-pointer duration-300">
+        <button className="w-full bg-[var(--text)] py-3 px-4 rounded-full text-[var(--background)] tracking-tighter flex items-center justify-between hover:bg-transparent hover:border-[var(--text)] border border-transparent hover:text-[var(--text)] cursor-pointer duration-300">
           <span className="">Send</span>
           <svg
             width="5%"

@@ -2,10 +2,10 @@ import { memo } from "react";
 
 const Footer = memo(function Footer({ today }) {
   return (
-    <footer className="w-full bg-rich-grey text-night flex items-center justify-between p-2">
+    <footer className="w-full bg-[var(--text)] text-[var(--background)] flex items-center justify-between p-2">
       <div>
-        <h1 className="text-2xl tracking-tighter font-medium uppercase">
-          Kaif Saiyed
+        <h1 className="text-2xl tracking-tight font-medium uppercase">
+          Kaif's portfolio v1
         </h1>
       </div>
       <div>

@@ -10,7 +10,7 @@ export default function ContactLink({ title, href }) {
       href={href}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="w-full relative overflow-hidden flex items-center justify-start hover:bg-rich-grey hover:text-night duration-500 text-rich-grey"
+      className="w-full relative overflow-hidden flex items-center justify-start hover:bg-[var(--text)] hover:text-[var(--background)] duration-500 text-[var(--text)] bg-[var(--background)]"
     >
       <div className="w-full relative">
         <span className="uppercase font-medium tracking-tighter text-3xl flex items-center">

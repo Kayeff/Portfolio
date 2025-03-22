@@ -1,15 +1,18 @@
+import { ReactLenis, useLenis } from "lenis/react";
+import { useRef, useEffect, useState, Suspense, lazy } from "react";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import { ReactLenis, useLenis } from "lenis/react";
-import Projects from "./components/Projects";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import { useRef } from "react";
+const Projects = lazy(() => import("./components/Projects"));
+const About = lazy(() => import("./components/About"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
   const today = new Date();
-  const lenis = useLenis();
+  const lenis = useLenis(({ scroll }) => {
+    requestAnimationFrame(() => {});
+  });
 
   const projectsRef = useRef(null);
   const aboutRef = useRef(null);
@@ -25,6 +28,25 @@ export default function App() {
     }
   }
 
+  const storedThemes =
+    localStorage.getItem("theme") ||
+    (window.matchMedia("(prefer-color-scheme: dark)").matches && "dark") ||
+    "light" ||
+    "red";
+
+  const [theme, setTheme] = useState(storedThemes);
+
+  const toggleTheme = (color) => {
+    setTheme(color);
+    localStorage.setItem("theme", color);
+  };
+
+  useEffect(() => {
+    const element = document.querySelector("main");
+    element.classList.remove("light", "dark", "red");
+    element.classList.add(theme);
+  }, [theme]);
+
   return (
     <ReactLenis
       root
@@ -36,19 +58,23 @@ export default function App() {
         autoRaf: true,
       }}
     >
-      <main className="font-general-sans min-h-screen w-full bg-night relative">
-        <Navbar
-          onClick={(id) => {
-            if (id === "projects") handleScrollTo(projectsRef);
-            if (id === "about") handleScrollTo(aboutRef);
-            if (id === "contact") handleScrollTo(contactRef);
-          }}
-        />
-        <Hero today={today} />
-        <Projects ref={projectsRef} />
-        <About ref={aboutRef} />
-        <Contact ref={contactRef} />
-        <Footer today={today} />
+      <main className="font-general-sans min-h-screen w-full relative bg-[var(--background)] text-[var(--text)] transition-colors duration-500">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Navbar
+            onClick={(id) => {
+              if (id === "projects") handleScrollTo(projectsRef);
+              if (id === "about") handleScrollTo(aboutRef);
+              if (id === "contact") handleScrollTo(contactRef);
+            }}
+            theme={theme}
+            toggleTheme={toggleTheme}
+          />
+          <Hero today={today} />
+          <Projects ref={projectsRef} />
+          <About ref={aboutRef} />
+          <Contact ref={contactRef} />
+          <Footer today={today} />
+        </Suspense>
       </main>
     </ReactLenis>
   );

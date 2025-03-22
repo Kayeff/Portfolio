@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import ThemeSelect from "./ThemeSelect";
 
 const links = [
   { id: 1, title: "Projects", sectionID: "projects" },
@@ -9,7 +10,7 @@ const links = [
 function NavbarLinks({ onClick, title, idx, sectionID }) {
   return (
     <li className="py-2 overflow-hidden">
-      <button className="link laptop:text-lg flex items-center justify-center transition-all relative hover:text-light-gray text-lg font-normal cursor-pointer">
+      <button className="link laptop:text-lg flex items-center justify-center relative text-lg font-normal cursor-pointer">
         <motion.span
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -23,9 +24,9 @@ function NavbarLinks({ onClick, title, idx, sectionID }) {
   );
 }
 
-export default function Navbar({ onClick }) {
+export default function Navbar({ onClick, toggleTheme, theme }) {
   return (
-    <nav className="w-full sticky z-40 top-0 left-0 bg-night border-b border-rich-grey/20 px-6">
+    <nav className="w-full bg-[var(--background)] text-[var(--text)] sticky z-40 top-0 left-0 border-b border-[var(--text)]/20 px-6 transition-all duration-300">
       <motion.div
         initial={{ height: "0px", opacity: 0 }}
         animate={{ height: "70px", opacity: 1 }}
@@ -40,7 +41,7 @@ export default function Navbar({ onClick }) {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            className="text-xl tracking-tight text-rich-grey laptop:text-2xl"
+            className="text-xl tracking-tight laptop:text-2xl"
           >
             Kaif Saiyed
           </motion.h1>
@@ -57,6 +58,7 @@ export default function Navbar({ onClick }) {
             />
           ))}
         </ul>
+        <ThemeSelect toggleTheme={toggleTheme} themeColor={theme} />
       </motion.div>
     </nav>
   );

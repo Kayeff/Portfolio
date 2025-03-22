@@ -25,7 +25,7 @@ export default function Project({ ref }) {
     <section
       ref={ref}
       id="projects"
-      className="min-h-screen w-full flex items-center justify-center flex-col relative bg-night text-rich-grey"
+      className="min-h-screen w-full flex items-center justify-center flex-col relative bg-[var(--background)] text-[var(--text)]"
     >
       <SmallHeading title={"Selected Projects"} />
       <div className="w-full flex items-start justify-center flex-col px-6 py-10">

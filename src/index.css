@@ -1,16 +1,34 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: "General-Sans";
   src: url("./fonts/General-Sans.woff2");
 }
 
-@theme {
-  --color-night: #1a1c23;
-  --color-rich-grey: #a7a7a7;
-  --color-light-gray: #cacaca;
+:root {
+  --night: #1a1c23;
+  --rich-grey: #a7a7a7;
+  --light-gray: #cacaca;
+  --cosmic-latte: #f8f4e3;
+  --dim-gray: #706c61;
+  --cornell-red: #bb0a1c;
+  --parchment: #f4ebd0;
 
-  --font-general-sans: "General-Sans", sans-serif;
+  --general-sans: "General-Sans", sans-serif;
+}
+
+@theme {
+  --font-general-sans: var(--general-sans);
+
+  --color-night: var(--night);
+  --color-rich-grey: var(--rich-grey);
+  --color-light-gray: var(--light-gray);
+  --color-cosmic-latte: var(--cosmic-latte);
+  --color-dim-gray: var(--dim-gray);
+  --color-cornell-red: var(--cornell-red);
+  --color-parchment: var(--parchment);
 
   --breakpoint-*: initial;
   --breakpoint-mobile-s: 320px;
@@ -23,17 +41,51 @@
   --breakpoint-4k: 2560px;
 }
 
+.light {
+  --background: var(--cosmic-latte);
+  --text: var(--night);
+  --span-text: var(--dim-gray);
+
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.dark {
+  --background: var(--color-night);
+  --text: var(--color-rich-grey);
+
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.red {
+  --background: var(--color-cornell-red);
+  --text: var(--color-parchment);
+
+  background-color: var(--background);
+  color: var(--text);
+}
+
+[data-theme="custom"] option {
+  background: #333; /* Default background */
+  color: white;
+}
+
+[data-theme="custom"] option:hover {
+  background: #555 !important; /* Custom hover background */
+  color: #fff;
+}
+
 .me {
   background: url("./assets/kaif-2.webp") no-repeat center center/cover;
 }
 
 @layer base {
   .link {
-    @apply after:content-[''] after:h-[1px] after:w-full after:bg-rich-grey after:absolute after:-bottom-1 after:scale-x-0 after:origin-right after:transition-transform after:ease-in-out hover:after:scale-100 hover:after:origin-left after:duration-700 after:overflow-hidden text-rich-grey;
+    @apply after:content-[''] after:h-[1px] after:w-full after:bg-[var(--text)] after:absolute after:-bottom-1 after:scale-x-0 after:origin-right after:transition-transform after:ease-in-out hover:after:scale-100 hover:after:origin-left after:duration-700 after:overflow-hidden transition-transform;
   }
 }
 
-body::selection {
-  background-color: var(--color-rich-grey);
-  color: var(--color-night);
+html {
+  font-display: swap;
 }

@@ -5,7 +5,7 @@ import SmallHeading from "./SmallHeading";
 
 const Hero = memo(function Hero({ today }) {
   return (
-    <section className="w-full h-[calc(100vh-70px)] relative space-y-2 bg-night text-rich-grey">
+    <section className="w-full h-[calc(100vh-70px)] relative gap-2 ">
       <div className="w-full px-4 py-20">
         <Heading title={"front-end"} />
         <div className="indent-96 overflow-hidden w-max">
@@ -14,7 +14,7 @@ const Hero = memo(function Hero({ today }) {
         </div>
       </div>
       <div className="p-4 flex items-center justify-between absolute bottom-0 w-full z-30">
-        <div className="laptop:w-max flex items-center justify-center space-x-2 max-tablet:flex-col max-tablet:items-start max-tablet:space-x-0">
+        <div className="laptop:w-max flex items-center justify-center gap-2 max-tablet:flex-col max-tablet:items-start max-tablet:gap-0">
           <SmallHeading delay={0.3} title={formatDate(today.getDate())} />
           <SmallHeading delay={0.3} title={getMonthName(today.getMonth())} />
         </div>

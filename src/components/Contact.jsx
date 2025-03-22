@@ -7,27 +7,27 @@ export default function Contact({ ref }) {
     <section
       ref={ref}
       id="contact"
-      className="w-full bg-night text-rich-grey grid grid-cols-3 gap-2 border-t border-rich-grey"
+      className="w-full bg-[var(--background)] text-[var(--text)] grid grid-cols-3 gap-2 border-t border-[var(--text)]"
     >
       <motion.div
         whileInView={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeInOut", delay: 0.1 }}
-        className="w-full p-4 flex items-center justify-between flex-col border-r border-rich-grey"
+        className="w-full p-4 flex items-center justify-between flex-col border-r border-[var(--text)]"
       >
         <div className="w-full flex flex-col">
           <h1 className="uppercase tracking-tight font-medium text-4xl">
             Contact
           </h1>
-          <p className="text-#1a1c23 laptop:text-base font-normal text-sm">
-            Say <span className="text-light-gray">"Hello."</span> or drop me
-            suggestions.
+          <p className="laptop:text-base font-normal text-sm">
+            Say <span className="text-[var(--span-text)]">"Hello."</span> or
+            drop me suggestions.
           </p>
         </div>
         <div className="w-full flex flex-col">
           <h1>or Follow me</h1>
-          <div className="w-max flex flex-col">
+          <div className="w-full flex flex-col">
             <ContactLink href="https://github.com/Kayeff" title="github" />
             <ContactLink
               href="https://www.instagram.com/kayfsaiyed/"

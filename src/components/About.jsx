@@ -18,7 +18,7 @@ export default function About({ ref }) {
     <section
       id="about"
       ref={ref}
-      className="w-full min-h-screen bg-night text-rich-grey flex items-center justify-center"
+      className="w-full min-h-screen bg-[var(--background)] text-[var(--text)] flex items-center justify-center font-general-sans"
     >
       <div className="w-[50%] flex items-center justify-center p-8">
         <div className="grid grid-cols-2 gap-10 ">
@@ -27,7 +27,7 @@ export default function About({ ref }) {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.7, ease: "easeInOut" }}
             viewport={{ once: true }}
-            className="me h-96 w-72 border border-rich-grey justify-self-end"
+            className="me h-96 w-72 border border-[var(--text)] justify-self-end will-change-transform"
           ></motion.div>
           <div className="flex flex-col gap-4">
             <div>
