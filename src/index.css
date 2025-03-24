@@ -5,6 +5,7 @@
 @font-face {
   font-family: "General-Sans";
   src: url("./fonts/General-Sans.woff2");
+  font-display: swap;
 }
 
 :root {
@@ -84,8 +85,4 @@
   .link {
     @apply after:content-[''] after:h-[1px] after:w-full after:bg-[var(--text)] after:absolute after:-bottom-1 after:scale-x-0 after:origin-right after:transition-transform after:ease-in-out hover:after:scale-100 hover:after:origin-left after:duration-700 after:overflow-hidden transition-transform;
   }
-}
-
-html {
-  font-display: swap;
 }

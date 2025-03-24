@@ -1,60 +1,53 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { RiMoonFill, RiSunFill, RiTriangleFill } from "@remixicon/react";
+import { twMerge } from "tailwind-merge";
 
 const themes = [
-  { value: "light", label: "Light" },
-  { value: "red", label: "Red" },
-  { value: "dark", label: "Dark" },
+  { value: "light", Icon: RiSunFill },
+  { value: "red", Icon: RiTriangleFill },
+  { value: "dark", Icon: RiMoonFill },
 ];
 
-export default function ThemeSelect({ toggleTheme, themeColor }) {
-  const selected = themes.find((theme) => theme.value === themeColor);
-  const [selectedTheme, setSelectedTheme] = useState(selected);
-  const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef(null);
+export default function ThemeSelect({}) {
+  const storedTheme =
+    localStorage.getItem("theme") ||
+    window.matchMedia("(prefer-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  const [theme, setTheme] = useState(storedTheme);
 
-  const handleSelect = (theme) => {
-    toggleTheme(theme.value);
-    setSelectedTheme(theme);
-    setIsOpen(false);
-  };
+  function handleSetTheme(clickedTheme) {
+    setTheme(clickedTheme);
+    localStorage.setItem("theme", clickedTheme);
+  }
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target)
-      ) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+    const element = document.querySelector("main");
+    element.classList.remove("light", "dark", "red");
+
+    if (theme === "light") {
+      element.classList.add("light");
+    } else if (theme === "red") {
+      element.classList.add("red");
+    } else {
+      element.classList.add("dark");
+    }
+  }, [theme]);
 
   return (
-    <div ref={containerRef} className="relative w-40">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center px-4 py-2 border border-[var(--text)]/20 hover:bg-rich-grey/5 transition-colors duration-500 cursor-pointer"
-      >
-        {selectedTheme.label}
-      </button>
-
-      {isOpen && (
-        <ul className="absolute bg-[var(--background)] mt-1 w-full border border-[var(--text)]/20 overflow-hidden">
-          {themes.map((theme) => (
-            <li
-              key={theme.value}
-              onClick={() => handleSelect(theme)}
-              className="px-4 py-2 cursor-pointer hover:bg-rich-grey/10 transition-colors duration-500"
-            >
-              {theme.label}
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="text-[var(--text)] p-0.5 flex items-center justify-center gap-1 border border-[var(--text)]/20 rounded-full">
+      {themes.map(({ Icon, value }) => (
+        <button
+          key={value}
+          onClick={() => handleSetTheme(value)}
+          className={twMerge(
+            "p-2 rounded-full hover:text-[var(--background] duration-300 text-[var(--text)]/60 cursor-pointer",
+            theme === value && "bg-[var(--text)] text-[var(--background)]"
+          )}
+        >
+          <Icon size={15} />
+        </button>
+      ))}
     </div>
   );
 }
