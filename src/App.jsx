@@ -58,23 +58,21 @@ export default function App() {
         autoRaf: true,
       }}
     >
-      <main className="font-general-sans min-h-screen w-full relative bg-[var(--background)] text-[var(--text)] transition-colors duration-500">
-        <Suspense fallback={<div>Loading...</div>}>
-          <Navbar
-            onClick={(id) => {
-              if (id === "projects") handleScrollTo(projectsRef);
-              if (id === "about") handleScrollTo(aboutRef);
-              if (id === "contact") handleScrollTo(contactRef);
-            }}
-            theme={theme}
-            toggleTheme={toggleTheme}
-          />
-          <Hero today={today} />
-          <Projects ref={projectsRef} />
-          <About ref={aboutRef} />
-          <Contact ref={contactRef} />
-          <Footer today={today} />
-        </Suspense>
+      <main className="min-h-screen w-full relative bg-[var(--background)] text-[var(--text)] transition-colors duration-500">
+        <Navbar
+          onClick={(id) => {
+            if (id === "projects") handleScrollTo(projectsRef);
+            if (id === "about") handleScrollTo(aboutRef);
+            if (id === "contact") handleScrollTo(contactRef);
+          }}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
+        <Hero today={today} />
+        <Projects ref={projectsRef} />
+        <About ref={aboutRef} />
+        <Contact ref={contactRef} />
+        <Footer today={today} />
       </main>
     </ReactLenis>
   );
