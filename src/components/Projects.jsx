@@ -15,8 +15,8 @@ const projects = [
   },
   {
     id: 4,
-    title: "Kunafa World",
-    href: "",
+    title: "Valiant Prototype",
+    href: "https://kayeff.github.io/Valiant-Frontend/",
   },
 ];
 
