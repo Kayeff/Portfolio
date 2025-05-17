@@ -31,8 +31,7 @@ export default function App() {
   const storedThemes =
     localStorage.getItem("theme") ||
     (window.matchMedia("(prefer-color-scheme: dark)").matches && "dark") ||
-    "light" ||
-    "red";
+    "light";
 
   const [theme, setTheme] = useState(storedThemes);
 
@@ -43,7 +42,7 @@ export default function App() {
 
   useEffect(() => {
     const element = document.querySelector("main");
-    element.classList.remove("light", "dark", "red");
+    element.classList.remove("light", "dark");
     element.classList.add(theme);
   }, [theme]);
 
@@ -58,7 +57,7 @@ export default function App() {
         autoRaf: true,
       }}
     >
-      <main className="min-h-screen w-full relative bg-[var(--background)] text-[var(--text)] transition-colors duration-500">
+      <main className="min-h-screen w-full relative bg-[var(--background)] text-[var(--text)] transition-colors duration-500 antialiased">
         <Navbar
           onClick={(id) => {
             if (id === "projects") handleScrollTo(projectsRef);

@@ -10,7 +10,7 @@ export default function ProjectBar({ project }) {
       target="_blank"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="w-full relative overflow-hidden flex items-center justify-start border-b nth-[1]:border-t border-[var(--text)]"
+      className="w-full relative overflow-hidden flex items-center justify-start border-b nth-[1]:border-t border-[var(--text)]/20"
     >
       <motion.span
         initial={{ opacity: 0 }}

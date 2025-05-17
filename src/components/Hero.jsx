@@ -5,8 +5,8 @@ import SmallHeading from "./SmallHeading";
 
 const Hero = memo(function Hero({ today }) {
   return (
-    <section className="w-full h-[calc(100vh-70px)] relative gap-2 ">
-      <div className="w-full px-4 py-20">
+    <section className="w-full h-[calc(100vh-70px)] relative gap-2">
+      <div className="w-full flex flex-col px-4 py-20">
         <Heading title={"front-end"} />
         <div className="indent-96 overflow-hidden w-max">
           <Heading delay={0.2} title={"developer"} />

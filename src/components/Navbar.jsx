@@ -10,7 +10,7 @@ const links = [
 function NavbarLinks({ onClick, title, idx, sectionID }) {
   return (
     <li className="py-2 overflow-hidden">
-      <button className="link laptop:text-lg flex items-center justify-center relative text-lg font-normal cursor-pointer">
+      <button className="link laptop:text-lg flex items-center justify-center relative text-lg font-normal cursor-pointer tracking-tighter">
         <motion.span
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -41,9 +41,9 @@ export default function Navbar({ onClick, toggleTheme, theme }) {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            className="text-xl tracking-tight laptop:text-2xl"
+            className="text-xl tracking-tighter laptop:text-2xl"
           >
-            Kaif Saiyed
+            made by Kaif
           </motion.h1>
         </button>
         <ul className="flex items-center justify-center gap-4">

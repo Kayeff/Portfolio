@@ -4,7 +4,6 @@ import { twMerge } from "tailwind-merge";
 
 const themes = [
   { value: "light", Icon: RiSunFill },
-  { value: "red", Icon: RiTriangleFill },
   { value: "dark", Icon: RiMoonFill },
 ];
 
@@ -23,12 +22,10 @@ export default function ThemeSelect({}) {
 
   useEffect(() => {
     const element = document.querySelector("main");
-    element.classList.remove("light", "dark", "red");
+    element.classList.remove("light", "dark");
 
     if (theme === "light") {
       element.classList.add("light");
-    } else if (theme === "red") {
-      element.classList.add("red");
     } else {
       element.classList.add("dark");
     }

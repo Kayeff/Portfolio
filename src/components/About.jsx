@@ -18,7 +18,7 @@ export default function About({ ref }) {
     <section
       id="about"
       ref={ref}
-      className="w-full min-h-screen bg-[var(--background)] text-[var(--text)] flex items-center justify-center font-general-sans"
+      className="w-full min-h-screen bg-[var(--background)] text-[var(--text)] flex items-center justify-center font-inter"
     >
       <div className="w-[50%] flex items-center justify-center p-8">
         <div className="grid grid-cols-2 gap-10 ">
@@ -27,8 +27,8 @@ export default function About({ ref }) {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.7, ease: "easeInOut" }}
             viewport={{ once: true }}
-            className="me h-96 w-72 border border-[var(--text)] justify-self-end will-change-transform"
-          ></motion.div>
+            className="me h-96 w-72 border border-[var(--text)]/20 justify-self-end will-change-transform"
+          />
           <div className="flex flex-col gap-4">
             <div>
               <div className="flex items-center justify-start">
@@ -39,7 +39,7 @@ export default function About({ ref }) {
                 initial={{ opacity: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: "easeInOut", delay: 0.1 }}
-                className="laptop:text-lg tracking-normal text-sm"
+                className="laptop:text-lg tracking-tight text-sm"
               >
                 Hey fellas! Kaif here. I'm Frontend developer who is driven by
                 love for crafting clean, minimalistic web experiences focusing
@@ -59,7 +59,7 @@ export default function About({ ref }) {
                 initial={{ opacity: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
-                className="font-medium text-lg"
+                className="font-medium text-lg tracking-tight"
               >
                 Tech Stack:{" "}
               </motion.h1>

@@ -8,28 +8,23 @@
   font-display: swap;
 }
 
-:root {
-  --night: #1a1c23;
-  --rich-grey: #a7a7a7;
-  --light-gray: #cacaca;
-  --cosmic-latte: #f8f4e3;
-  --dim-gray: #706c61;
-  --cornell-red: #bb0a1c;
-  --parchment: #f4ebd0;
-
-  --general-sans: "General-Sans", sans-serif;
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter.woff2");
+  font-display: swap;
 }
 
 @theme {
   --font-general-sans: var(--general-sans);
+  --font-inter: "Inter";
 
-  --color-night: var(--night);
-  --color-rich-grey: var(--rich-grey);
-  --color-light-gray: var(--light-gray);
-  --color-cosmic-latte: var(--cosmic-latte);
-  --color-dim-gray: var(--dim-gray);
-  --color-cornell-red: var(--cornell-red);
-  --color-parchment: var(--parchment);
+  --color-night: #0a0908;
+  --color-rich-grey: #eae0d5;
+  --color-light-gray: #cacaca;
+  --color-cosmic-latte: #f8f4e3;
+  --color-dim-gray: #706c61;
+  --color-cornell-red: #bb0a1c;
+  --color-parchment: #f4ebd0;
 
   --breakpoint-*: initial;
   --breakpoint-mobile-s: 320px;
@@ -43,9 +38,9 @@
 }
 
 .light {
-  --background: var(--cosmic-latte);
-  --text: var(--night);
-  --span-text: var(--dim-gray);
+  --background: var(--color-rich-grey);
+  --text: var(--color-night);
+  --span-text: var(--color-dim-gray);
 
   background-color: var(--background);
   color: var(--text);
@@ -57,24 +52,6 @@
 
   background-color: var(--background);
   color: var(--text);
-}
-
-.red {
-  --background: var(--color-cornell-red);
-  --text: var(--color-parchment);
-
-  background-color: var(--background);
-  color: var(--text);
-}
-
-[data-theme="custom"] option {
-  background: #333; /* Default background */
-  color: white;
-}
-
-[data-theme="custom"] option:hover {
-  background: #555 !important; /* Custom hover background */
-  color: #fff;
 }
 
 .me {

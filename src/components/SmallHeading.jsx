@@ -8,7 +8,7 @@ export default function SmallHeading({ title, delay }) {
         initial={{ opacity: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeInOut", delay: delay }}
-        className="font-medium uppercase text-xs tracking-normal laptop:text-base text-end"
+        className="font-medium uppercase text-xs tracking-tighter laptop:text-base text-end"
       >
         {title}
       </motion.h3>

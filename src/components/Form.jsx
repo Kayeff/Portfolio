@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export default function Form() {
   return (
     <form action="" className="flex flex-col gap-6">
-      <div>
+      <div className="tracking-tighter">
         <span>
           Hi, Kaif. My name is{" "}
           <input
@@ -38,7 +38,7 @@ export default function Form() {
         </span>
       </div>
       <div className="w-full">
-        <button className="w-full bg-[var(--text)] py-3 px-4 rounded-full text-[var(--background)] tracking-tighter flex items-center justify-between hover:bg-transparent hover:border-[var(--text)] border border-transparent hover:text-[var(--text)] cursor-pointer duration-300">
+        <button className="w-full bg-[var(--text)] py-3 px-4 rounded-full text-[var(--background)] tracking-tighter flex items-center justify-between hover:bg-transparent hover:border-[var(--text)]/50 border border-transparent hover:text-[var(--text)] cursor-pointer duration-300">
           <span className="">Send</span>
           <svg
             width="5%"
