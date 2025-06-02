@@ -5,12 +5,14 @@ import thinking from "/thinking.svg";
 
 export const stack = [
   {
+    id: "stack1",
     title: "Web",
     description: "Most of my skills are gained in front-end web projects.",
     rotate: false,
     image: js,
   },
   {
+    id: "stack2",
     title: "UI",
     description:
       "I have a passion for crafting beautiful, intuitive user interfaces.",
@@ -18,6 +20,7 @@ export const stack = [
     image: react,
   },
   {
+    id: "stack3",
     title: "Motion",
     description:
       "I love bringing interfaces to life with smooth, purposeful animations.",
@@ -25,8 +28,10 @@ export const stack = [
     image: framerMotion,
   },
   {
+    id: "stack4",
     title: "Soft Skills",
-    description: "Analytical Thinking, Time Management & Responsibility",
+    description:
+      "Creative & Analytical Thinking, Time Management, Responsibility",
     rotate: true,
     image: thinking,
   },

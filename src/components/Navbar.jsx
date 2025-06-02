@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import ThemeSelect from "./ThemeSelect";
 import { Link } from "react-router-dom";
 
-export default function Navbar({ toggleTheme, theme }) {
+export default function Navbar() {
   return (
     <nav className="w-full text-[var(--text)] sticky z-40 top-0 left-0 px-10 py-3 transition-all duration-300 bg-[var(--background)]">
       <motion.div
@@ -21,7 +21,7 @@ export default function Navbar({ toggleTheme, theme }) {
             Kaif Saiyed
           </motion.h1>
         </Link>
-        <ThemeSelect toggleTheme={toggleTheme} themeColor={theme} />
+        <ThemeSelect />
       </motion.div>
     </nav>
   );

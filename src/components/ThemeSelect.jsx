@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { RiMoonFill, RiSunFill, RiTriangleFill } from "@remixicon/react";
+import { RiMoonFill, RiSunFill } from "@remixicon/react";
 import { twMerge } from "tailwind-merge";
 
 const themes = [
@@ -7,28 +7,25 @@ const themes = [
   { value: "dark", Icon: RiMoonFill },
 ];
 
-export default function ThemeSelect({}) {
-  const storedTheme =
-    localStorage.getItem("theme") ||
-    window.matchMedia("(prefer-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  const [theme, setTheme] = useState(storedTheme);
+const preferredTheme =
+  localStorage.getItem("theme") ||
+  window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 
-  function handleSetTheme(clickedTheme) {
-    setTheme(clickedTheme);
-    localStorage.setItem("theme", clickedTheme);
+export default function ThemeSelect() {
+  const [theme, setTheme] = useState(preferredTheme);
+
+  function handleSetTheme(selectedTheme) {
+    setTheme(selectedTheme);
+    localStorage.setItem("theme", selectedTheme);
   }
 
   useEffect(() => {
-    const element = document.querySelector("main");
+    const element = document.documentElement;
     element.classList.remove("light", "dark");
 
-    if (theme === "light") {
-      element.classList.add("light");
-    } else {
-      element.classList.add("dark");
-    }
+    element.classList.add(theme);
   }, [theme]);
 
   return (

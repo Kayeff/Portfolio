@@ -10,11 +10,12 @@ export default function About() {
           My <span className="font-ephasis font-normal">Skills</span>
         </>
       }
+      className="grid-cols-1"
       smallHeadingText="Every pixel, font, color, design is important for me. I have skills ranging from HTML to Redux JS to get the work done."
     >
       <div className="w-full grid grid-cols-6 gap-2">
-        {stack.map((stackItem) => (
-          <Stack key={stackItem.stackTitle} stack={stackItem} />
+        {stack.map((stackItem, index) => (
+          <Stack key={stackItem.id} index={index} stack={stackItem} />
         ))}
       </div>
     </Section>
