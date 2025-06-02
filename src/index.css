@@ -9,17 +9,31 @@
 }
 
 @font-face {
+  font-family: "Array";
+  src: url("/fonts/Array.woff2");
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Inter";
   src: url("/fonts/inter.woff2");
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Ephasis";
+  src: url("/fonts/Ephesis.ttf");
+  font-display: swap;
+}
+
 @theme {
-  --font-general-sans: var(--general-sans);
+  --font-general-sans: "General-Sans";
+  --font-ephasis: "Ephasis";
   --font-inter: "Inter";
+  --font-array: "Array";
 
   --color-night: #0a0908;
-  --color-rich-grey: #eae0d5;
+  --color-rich-grey: #ffffff;
   --color-light-gray: #cacaca;
   --color-cosmic-latte: #f8f4e3;
   --color-dim-gray: #706c61;

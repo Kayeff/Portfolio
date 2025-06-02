@@ -1,28 +1,22 @@
-import { memo } from "react";
-import { formatDate, getDay, getMonthName } from "../date";
-import Heading from "./Heading";
-import SmallHeading from "./SmallHeading";
+import { projects } from "../projects";
+import Project from "./Project";
+import Section from "./Section";
 
-const Hero = memo(function Hero({ today }) {
+export default function Hero() {
   return (
-    <section className="w-full h-[calc(100vh-70px)] relative gap-2">
-      <div className="w-full flex flex-col px-4 py-20">
-        <Heading title={"front-end"} />
-        <div className="indent-96 overflow-hidden w-max">
-          <Heading delay={0.2} title={"developer"} />
-          <SmallHeading delay={0.3} title={"based in gujarat, india"} />
+    <Section smallHeadingText="Hello you! I'm Kaif Saiyed, a front-end developer with passion in creating minimalist and performant solutions to websites.">
+      <div className="w-full flex flex-col gap-2">
+        <div className="w-full p-2 grid grid-cols-4 gap-3">
+          {projects.map((project) => (
+            <Project key={project.id} project={project} />
+          ))}
+        </div>
+        <div className="w-full flex items-center justify-end">
+          <a href="" target="_blank" className="tracking-tight hover:underline">
+            See Resume
+          </a>
         </div>
       </div>
-      <div className="p-4 flex items-center justify-between absolute bottom-0 w-full z-30">
-        <div className="laptop:w-max flex items-center justify-center gap-2 max-tablet:flex-col max-tablet:items-start max-tablet:gap-0">
-          <SmallHeading delay={0.3} title={formatDate(today.getDate())} />
-          <SmallHeading delay={0.3} title={getMonthName(today.getMonth())} />
-        </div>
-        <SmallHeading delay={0.3} title={today.getFullYear()} />
-        <SmallHeading delay={0.3} title={getDay(today.getDay())} />
-      </div>
-    </section>
+    </Section>
   );
-});
-
-export default Hero;
+}

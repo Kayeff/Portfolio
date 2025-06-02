@@ -1,40 +1,18 @@
-import { ReactLenis, useLenis } from "lenis/react";
-import { useRef, useEffect, useState, Suspense, lazy } from "react";
-
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-const Projects = lazy(() => import("./components/Projects"));
-const About = lazy(() => import("./components/About"));
-const Contact = lazy(() => import("./components/Contact"));
-const Footer = lazy(() => import("./components/Footer"));
+import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer";
+import ScrollDown from "./components/ScrollDown";
+
+const storedThemes =
+  localStorage.getItem("theme") ||
+  (window.matchMedia("(prefer-color-scheme: dark)").matches && "dark") ||
+  "light";
 
 export default function App() {
   const today = new Date();
-  const lenis = useLenis(({ scroll }) => {
-    requestAnimationFrame(() => {});
-  });
-
-  const projectsRef = useRef(null);
-  const aboutRef = useRef(null);
-  const contactRef = useRef(null);
-
-  function handleScrollTo(section) {
-    if (lenis && section) {
-      lenis.scrollTo(section.current, {
-        duration: 1.5,
-        easing: (t) => 1 - Math.pow(1 - t, 3),
-        offset: -50,
-      });
-    }
-  }
-
-  const storedThemes =
-    localStorage.getItem("theme") ||
-    (window.matchMedia("(prefer-color-scheme: dark)").matches && "dark") ||
-    "light";
 
   const [theme, setTheme] = useState(storedThemes);
-
   const toggleTheme = (color) => {
     setTheme(color);
     localStorage.setItem("theme", color);
@@ -47,32 +25,13 @@ export default function App() {
   }, [theme]);
 
   return (
-    <ReactLenis
-      root
-      options={{
-        duration: 1.2,
-        easing: (t) => 1 - Math.pow(1 - t, 3),
-        smooth: true,
-        smoothTouch: false,
-        autoRaf: true,
-      }}
-    >
-      <main className="min-h-screen w-full relative bg-[var(--background)] text-[var(--text)] transition-colors duration-500 antialiased">
-        <Navbar
-          onClick={(id) => {
-            if (id === "projects") handleScrollTo(projectsRef);
-            if (id === "about") handleScrollTo(aboutRef);
-            if (id === "contact") handleScrollTo(contactRef);
-          }}
-          theme={theme}
-          toggleTheme={toggleTheme}
-        />
-        <Hero today={today} />
-        <Projects ref={projectsRef} />
-        <About ref={aboutRef} />
-        <Contact ref={contactRef} />
-        <Footer today={today} />
-      </main>
-    </ReactLenis>
+    <main className="min-h-screen w-full relative bg-[var(--background)] text-[var(--text)] transition-colors duration-500 antialiased">
+      <Navbar toggleTheme={toggleTheme} theme={theme} />
+      <ScrollDown />
+      <div className="w-full px-10 flex flex-col gap-10">
+        <Outlet />
+      </div>
+      <Footer today={today} />
+    </main>
   );
 }
