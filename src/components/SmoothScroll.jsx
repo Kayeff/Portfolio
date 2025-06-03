@@ -8,7 +8,7 @@ export default function SmoothScroll({ children }) {
         duration: 1.0,
         easing: (t) => t * (2 - t),
         smooth: true,
-        smoothTouch: true,
+        smoothTouch: false,
         autoRaf: true,
       }}
     >

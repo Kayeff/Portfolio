@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <>
       <footer className="w-full flex items-center justify-between p-10">
-        <div className="w-full grid grid-cols-4 p-2">
+        <div className="w-full grid grid-cols-3 p-2">
           <div className="w-full">
             <Link
               to=""
@@ -39,16 +39,6 @@ export default function Footer() {
               Twitter
             </a>
           </div>
-          <div className="w-full flex flex-col gap-2">
-            <h1 className="tracking-tighter text-4xl font-medium">
-              Let's connect
-            </h1>
-            <p>
-              <a href="" className="tracking-tight text-lg">
-                kaifsaiyed896@gmail.com
-              </a>
-            </p>
-          </div>
           <div className="w-full flex items-center justify-start flex-col gap-4">
             <p className="tracking-tight text-lg">local time</p>
             <h1 className="tracking-tighter text-5xl">
@@ -57,7 +47,9 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-      <div className="w-full bg-[var(--text)] text-[var(--background)] px-10 py-5"></div>
+      <div className="w-full bg-[var(--text)] text-[var(--background)] px-10 py-3 flex items-center justify-between">
+        <p className="tracking-tighter">&copy; Portfolio 2025</p>
+      </div>
     </>
   );
 }

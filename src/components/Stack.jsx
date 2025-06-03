@@ -24,7 +24,7 @@ export default function Stack({ stack, index }) {
     >
       <h1 className="tracking-tight text-4xl font-medium">{stack.title}</h1>
       <img
-        className="w-1/2 place-self-center object-cover grayscale group-hover:grayscale-0"
+        className="w-1/2 place-self-center object-cover dark:grayscale group-hover:grayscale-0"
         alt={`${stack.title}-image`}
         src={stack.image}
         loading="lazy"

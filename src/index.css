@@ -19,12 +19,8 @@
   --font-inter: "Inter";
 
   --color-night: #0a0908;
-  --color-rich-grey: #ffffff;
   --color-light-gray: #cacaca;
-  --color-cosmic-latte: #f8f4e3;
-  --color-dim-gray: #706c61;
   --color-cornell-red: #bb0a1c;
-  --color-parchment: #f4ebd0;
 
   --breakpoint-*: initial;
   --breakpoint-mobile-s: 320px;
@@ -38,9 +34,8 @@
 }
 
 .light {
-  --background: var(--color-rich-grey);
+  --background: white;
   --text: var(--color-night);
-  --span-text: var(--color-dim-gray);
 
   background-color: var(--background);
   color: var(--text);
@@ -48,18 +43,16 @@
 
 .dark {
   --background: var(--color-night);
-  --text: var(--color-rich-grey);
+  --text: white;
 
   background-color: var(--background);
   color: var(--text);
 }
 
-.me {
-  background: url("./assets/kaif-2.webp") no-repeat center center/cover;
+.error-bg {
+  background: url("/error-background.gif") no-repeat center center/cover;
 }
 
-@layer base {
-  .link {
-    @apply after:content-[''] after:h-[1px] after:w-full after:bg-[var(--text)] after:absolute after:-bottom-1 after:scale-x-0 after:origin-right after:transition-transform after:ease-in-out hover:after:scale-100 hover:after:origin-left after:duration-700 after:overflow-hidden transition-transform;
-  }
-}
+/* * {
+  outline: 1px solid red;
+} */
