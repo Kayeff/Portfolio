@@ -6,7 +6,6 @@ import "./index.css";
 import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
 import Contact from "./pages/Contact.jsx";
-import SmoothScroll from "./components/SmoothScroll.jsx";
 
 const router = createBrowserRouter(
   [
@@ -24,8 +23,6 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <SmoothScroll>
-      <RouterProvider router={router} />
-    </SmoothScroll>
+    <RouterProvider router={router} />
   </StrictMode>
 );

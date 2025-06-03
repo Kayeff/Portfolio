@@ -5,10 +5,10 @@ export default function SmoothScroll({ children }) {
     <ReactLenis
       root
       options={{
-        duration: 1.2,
-        easing: (t) => 1 - Math.pow(1 - t, 3),
+        duration: 1.0,
+        easing: (t) => t * (2 - t),
         smooth: true,
-        smoothTouch: false,
+        smoothTouch: true,
         autoRaf: true,
       }}
     >

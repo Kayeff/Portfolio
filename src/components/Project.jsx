@@ -5,17 +5,26 @@ export default function Project({ project, index }) {
   return (
     <motion.a
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{
-        duration: 0.3,
-        ease: "easeInOut",
-        delay: index * 0.1,
+      whileInView={{
+        opacity: 1,
+        transition: {
+          duration: 0.3,
+          ease: "easeInOut",
+          delay: index * 0.1,
+        },
+      }}
+      whileHover={{
+        y: -50,
+        transition: {
+          duration: 0.3,
+          ease: "easeInOut",
+        },
       }}
       viewport={{ once: true, amount: 0.5 }}
       href={project.href}
       target="_blank"
       key={project.id}
-      className="w-full rounded-xl border border-[var(--text)]/20 hover:translate-y-[-50px] duration-300"
+      className="w-full rounded-xl border border-[var(--text)]/20"
     >
       <img
         src={project.image}

@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <Section
       className="grid-cols-1"
-      smallHeadingText="Hello you! I'm Kaif Saiyed, a front-end developer with passion in creating minimalist and performant solutions to websites."
+      smallHeadingText="Hello you! I'm Kaif Saiyed, a front-end developer with passion in creating modern and minimalist performant solutions to web."
     >
       <div className="w-full flex flex-col gap-2">
         <div className="w-full p-2 grid grid-cols-4 gap-3">

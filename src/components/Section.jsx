@@ -1,8 +1,10 @@
 import { twMerge } from "tailwind-merge";
 import Heading from "./Heading";
 import SmallHeading from "./SmallHeading";
+import { memo } from "react";
 
-export default function Section({
+const Section = memo(function Section({
+  ref,
   headingText,
   smallHeadingText,
   children,
@@ -10,6 +12,7 @@ export default function Section({
 }) {
   return (
     <section
+      ref={ref}
       className={twMerge(
         "w-full min-h-screen grid gap-50 relative py-4",
         className
@@ -22,4 +25,6 @@ export default function Section({
       {children}
     </section>
   );
-}
+});
+
+export default Section;

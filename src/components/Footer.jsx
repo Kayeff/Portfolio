@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   const today = new Date();
+  const hours = String(today.getHours()).padStart(2, "0");
+  const minutes = String(today.getMinutes()).padStart(2, "0");
 
   return (
     <>
@@ -50,7 +52,7 @@ export default function Footer() {
           <div className="w-full flex items-center justify-start flex-col gap-4">
             <p className="tracking-tight text-lg">local time</p>
             <h1 className="tracking-tighter text-5xl">
-              {today.getHours()} : {today.getMinutes()}
+              {hours} : {minutes}
             </h1>
           </div>
         </div>
